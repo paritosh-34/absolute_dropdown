@@ -1,0 +1,33 @@
+@import "../variables.module.scss";
+
+// ------------
+// input container
+// ------------
+
+.container {
+  position: relative;
+
+  transition: margin-top 250ms ease;
+}
+
+.input {
+  width: 100%;
+  font-size: 1em;
+  border: 0.4px solid $primary-gray-9;
+  border-radius: 4px;
+  padding: 0.7em;
+  color: $primary-gray-3;
+}
+
+.input::placeholder {
+  color: $primary-gray-9;
+}
+
+// ------------
+// login label
+// ------------
+
+.label {
+  color: $primary-gray-6;
+  font-size: 1em;
+}

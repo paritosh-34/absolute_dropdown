@@ -1,15 +1,37 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import React, { useState } from "react";
+import Head from "next/head";
+import Dropdown from "../src/ui/Dropdown";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+// types
+import { userInfo } from "../src/interfaces";
+// styles
+import styles from "../styles/index.module.scss";
 
-export default IndexPage
+const IndexPage = () => {
+  const [formData, setFormData] = useState<userInfo>({
+    gender: "",
+  });
+
+  // A string array representing any wrong inputs. (not used in this example)
+  // const [wrongs, setWrongs] = useState<string[]>([]);
+
+  return (
+    <>
+      <Head>
+        <title>Absolute Dropdown</title>
+      </Head>
+      <div className={styles.container}>
+        <Dropdown
+          name="gender"
+          formData={formData}
+          setFormData={setFormData}
+          label="Gender"
+          list={["Male", "Female", "Others", "Ohters"]}
+          placeholder="Select Your Gender"
+        />
+      </div>
+    </>
+  );
+};
+
+export default IndexPage;
